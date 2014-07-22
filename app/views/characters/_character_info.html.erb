@@ -1,0 +1,5 @@
+<h2 class="name"><%= character.name %></h2>
+<p class="bio"><%= character.bio %></p>
+<%= link_to(edit_character_path(character), remote: true) do%>
+    <%= button_to "Edit" %>
+<% end %>

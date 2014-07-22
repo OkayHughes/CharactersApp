@@ -1,0 +1,11 @@
+
+    <ul>
+
+        <%characters.each do |c| %>
+        <%= link_to(character_path(c), remote: true) do %>
+            <li>
+            <%= c.name %>
+            </li>
+            <% end %>
+        <% end %>
+    </ul>

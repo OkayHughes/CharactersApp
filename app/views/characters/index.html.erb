@@ -1,0 +1,12 @@
+<% @character ||= Character.find(cookies[:character_id]) %>
+
+<% @tag ||= Tag.new %>
+
+<div class="main">
+    <div class="list">
+        <%= render(partial: "list", locals: {:characters => @characters}) %>
+    </div>
+    <div class="edit">
+        <%= render(partial: "edit", locals: {:character => @character, :tag => @tag}) %>
+    </div>
+</div>

@@ -1,0 +1,2 @@
+$(".list").html("<%= escape_javascript(render partial: 'list', locals: {:characters => Character.all } )%>");
+$(".new_character").html('');

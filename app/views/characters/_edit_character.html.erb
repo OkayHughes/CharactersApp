@@ -1,0 +1,5 @@
+<%= form_for(character, remote: true) do |f| %>
+	<%= f.text_field(:name, value: character.name) %><br>
+	<%= f.text_field(:bio, value: character.bio) %><br>
+	<%= f.submit("Submit Changes") %>
+<% end %>

@@ -1,0 +1,24 @@
+
+<% if character.tags.count != 0 %>
+
+    <% character.tags.each do |t| %>
+    <li class="<%= t.key %>" style="display:inline-block;"><%= t.key << ": " << t.value %>
+    <%= link_to(edit_tag_path(t), remote: true, style: "display:inline-block;") do %>
+    <p class="edit-link">Edit</p>
+    <% end %>
+    </li>
+    <% end %>
+<% else %>
+
+    <li>This character has no tags yet.</li>
+
+<% end %>
+
+<li class="new">
+    <%= form_for(tag, remote: true) do |t| %>
+        <%= t.text_field(:key, placeholder: "Category") %>
+        <%= t.text_field(:value, placeholder: "Value") %>
+        <%= t.hidden_field(:character_id, value: character.id) %>
+        <%= t.submit %>
+    <% end %>
+</li>

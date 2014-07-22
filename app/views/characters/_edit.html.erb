@@ -1,0 +1,8 @@
+    <% if character %>
+        <div class="character_info">
+        <%= render partial: "characters/character_info", locals: {:character => character} %>
+        </div>
+        <ul class="tags">
+        <%= render partial: "characters/tags", locals: {:character => character, :tag => tag} %>
+        </ul>
+    <% end %>
