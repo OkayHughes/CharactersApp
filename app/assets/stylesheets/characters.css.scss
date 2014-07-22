@@ -112,6 +112,17 @@ a:hover {
     -webkit-box-sizing: border-box;
 }
 
+.list li.null-text{
+    border: 0;
+    box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 0 0 ;
+    -webkit-box-shadow: 0 0 0 0;
+}
+
+.list li.null-text:hover{
+	color:white;
+}
+
 .list li:first-child {
     border-top: none;
 }

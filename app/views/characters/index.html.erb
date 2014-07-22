@@ -2,7 +2,11 @@
 
 <div class="main">
     <div class="list">
-        <%= render(partial: "list", locals: {:characters => @characters}) %>
+        <% if @characters.count != 0 %>
+            <%= render(partial: "list", locals: {:characters => @characters}) %>
+        <% else %>
+        <ul> <li class="null-text"> No Characters </li> </ul>
+        <% end %>
     </div>
     <div class="edit">
         <% if @character.id %>
