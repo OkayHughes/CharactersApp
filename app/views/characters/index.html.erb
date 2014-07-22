@@ -1,5 +1,3 @@
-<% @character ||= Character.find(cookies[:character_id]) %>
-
 <% @tag ||= Tag.new %>
 
 <div class="main">
@@ -7,6 +5,8 @@
         <%= render(partial: "list", locals: {:characters => @characters}) %>
     </div>
     <div class="edit">
+        <% if @character.id %>
         <%= render(partial: "edit", locals: {:character => @character, :tag => @tag}) %>
+        <% end %>
     </div>
 </div>

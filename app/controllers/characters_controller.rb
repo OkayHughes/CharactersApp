@@ -2,11 +2,13 @@ class CharactersController < ApplicationController
 
 	def index
 		@characters = Character.all
-		if cookies[:character_id]
+		if Character.ids.include?(cookies[:character_id])
 			@character = Character.find(cookies[:character_id])
-		else
+		elsif @characters.first
 			@character= @characters.first
 			cookies.permanent[:character_id] = @characters.first.id
+		else
+			@character = Character.new
 		end
 	end
 
