@@ -10,6 +10,10 @@ class CharactersController < ApplicationController
 		else
 			@character = Character.new
 		end
+		respond_to do |format|
+			format.html{}
+			format.json{render json: @characters.to_json(include: {tags: {only: [:key, :value]}})}
+		end
 	end
 
 	def new
