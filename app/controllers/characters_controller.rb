@@ -42,7 +42,7 @@ class CharactersController < ApplicationController
 		cookies.permanent[:character_id] = @character.id
 		respond_to do |format|
 			format.js{}
-			format.json {render json: @character}
+			format.json {render json: @character.to_json(:include => { :tags => { :only => [:key, :value]}})}
 		end
 	end
 

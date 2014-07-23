@@ -7,17 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="new_character">
+</div>
+<div class="background">
 <div id="container">
 <div class="topbar">
 	<%= link_to(new_character_path, remote: true) do %>
     <div class="plus">+</div>
     <% end %>
-    <div class="new_character">
-    </div>
+    <div class="edit-topbar", onclick="editToggle();">Edit</div>
 </div>
 <%= yield %>
 </div>
-
+</div>
 </body>
 </html>
