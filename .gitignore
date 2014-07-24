@@ -15,3 +15,6 @@ db/*.sqlite3-journal
 # Ignore all logfiles and tempfiles.
 log/*.log
 tmp
+
+# Ignore Mac OS junk
+*.DS_Store

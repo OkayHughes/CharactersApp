@@ -1,12 +1,13 @@
 <div class="new_character_box">
-<%= form_for(character, remote: true) do |f| %>
-	<div class="new_character_name">
-	<%= f.text_field(:name, placeholder: "Name",) %><br>
-	</div>
-	<%= f.text_area(:bio, placeholder: "Bio", cols: 40, rows: 10, class:"new_character_bio") %><br>
-	<span style="position:relative; display:inline">
-	<%= f.submit("Create Character", style:"float:left; margin-left:80px") %>
-<% end %>
-<%= button_tag("Cancel", onclick:"cancelNewCharacter();")%>
-</span>
+    New Character
+    <%= form_for(character, remote: true) do |f| %>
+    	<div class="new_character_name">
+    	<%= f.text_field(:name, placeholder: "Name", class:"new_character_name") %><br>
+    	</div>
+    	<%= f.text_area(:bio, placeholder: "Bio", class:"new_character_bio") %><br>
+    	<span style="position:relative; display:inline">
+    	<%= f.submit("Create Character", style:"float:left; margin-left:80px") %>
+    <% end %>
+    <%= button_tag("Cancel", onclick:"cancelNewCharacter();")%>
+    </span>
 </div>
