@@ -14,7 +14,14 @@ class CharactersController < ApplicationController
 		end
 		respond_to do |format|
 			format.html{}
-			format.json{render json: @characters.to_json(include: {tags: {only: [:key, :value]}})}
+			format.json{
+				if params[:from_date]
+					@characters = Character.where(updated_at: params[:from_date]..params[:to_date])
+					render json: @characters.to_json(include: {tags: {only: [:key, :value]}})
+				else
+					render json: @characters.to_json(include: {tags: {only: [:key, :value]}})
+				end
+				}
 		end
 	end
 
