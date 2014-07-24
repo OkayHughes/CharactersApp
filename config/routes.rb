@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'characters#index'
 
-  resources :characters
+  resources :characters, except: :index
+
   resources :tags
 
   match "/character_range/:from_date/:to_date", to: "characters#character_range", via: "get"
