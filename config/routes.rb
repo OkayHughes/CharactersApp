@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   match "/character_range/:from_date/:to_date", to: "characters#character_range", via: "get"
 
   match "/set_edit/:id", to:"characters#set_edit", via: "get", as: :set_edit
-  match "/set_view/:id", to:"characters#set_edit", via: "get", as: :set_view
+
+  match "/set_view/:id", to:"characters#set_view", via: "get", as: :set_view
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
