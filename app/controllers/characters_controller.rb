@@ -2,6 +2,7 @@ class CharactersController < ApplicationController
 
 	def index
 		@characters = Character.all
+		edit = nil
 		if Character.ids.include?(cookies[:character_id])
 			@character = Character.find(cookies[:character_id])
 		elsif @characters.first
@@ -20,6 +21,20 @@ class CharactersController < ApplicationController
 		@characters = Character.where(updated_at: params[:from_date]..params[:to_date])
 		respond_to do |format|
 			format.json{render json: @characters.to_json(include: {tags: {only: [:key, :value]}})}
+		end
+	end
+
+	def set_edit
+		@character = Character.find(params[:id])
+		respond_to do |format|	
+			format.js{}
+		end
+	end
+
+	def set_view
+		@character = Character.find(params[:id])
+		respond_to do |format|	
+			format.js{}
 		end
 	end
 

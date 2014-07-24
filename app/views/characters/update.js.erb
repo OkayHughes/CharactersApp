@@ -1,4 +1,2 @@
- $(".edit").html("<%= escape_javascript(render partial: 'edit', locals: { :character => Character.find(cookies[:character_id]), :tag => Tag.new }) %>");
+ $(".edit").html("<%= escape_javascript(render partial: 'edit', locals: { :character => Character.find(cookies[:character_id]), :tag => Tag.new, :edit => true}) %>");
  $(".list").html("<%= escape_javascript(render partial: 'list', locals: {:characters => Character.all } )%>");
- $(".show_character_div").hide();
- $(".edit_character_div").show();

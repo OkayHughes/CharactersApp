@@ -1,5 +1,10 @@
 <% @tag ||= Tag.new %>
-
+<div class="topbar">
+    <%= link_to(new_character_path, remote: true) do %>
+    <div class="plus">+</div>
+    <% end %>
+    <div class="edit-topbar"><%= render partial: "layouts/edit_button", locals: {:character => @character}%></div>
+</div>
 <div class="main">
     <div class="list">
         <% if @characters.count != 0 %>
@@ -10,7 +15,7 @@
     </div>
     <div class="edit">
         <% if @character.id %>
-        <%= render(partial: "edit", locals: {:character => @character, :tag => @tag}) %>
+        <%= render(partial: "edit", locals: {:character => @character, :tag => @tag, :edit => nil}) %>
         <% end %>
     </div>
 </div>

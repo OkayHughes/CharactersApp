@@ -1,11 +1,13 @@
+<% if !edit %>
 <div class="show_character_div">
 <h2 class="name"><%= character.name %></h2>
 <p class="bio"><%= character.bio %></p>
 </div>
-<div class="edit_character_div">
+<% end %>
+<% if edit %>
 <%= form_for(character, remote: true) do |f| %>
 	<%= f.text_field(:name, value: character.name) %><br>
 	<%= f.text_area(:bio, value: character.bio, cols:"20", rows:"5") %><br>
 	<%= f.submit("Submit Changes") %>
 <% end %>
-</div>
+<% end %>
