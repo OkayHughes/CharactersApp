@@ -3,7 +3,8 @@ class CharactersController < ApplicationController
 	def index
 		@characters = Character.all
 		edit = nil
-		if Character.ids.include?(cookies[:character_id])
+		current_user_cookie = cookies[:character_id].to_i
+		if Character.ids.include?(current_user_cookie)
 			@character = Character.find(cookies[:character_id])
 		elsif @characters.first
 			@character= @characters.first
