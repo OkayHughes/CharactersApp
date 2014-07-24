@@ -18,7 +18,3 @@
 $(document).ready(function() {
 	$(".edit-button").hide();
 })
-
-function editToggle(){
-	$(".edit-button").toggle();
-}

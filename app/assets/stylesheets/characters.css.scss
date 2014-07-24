@@ -29,6 +29,14 @@ html, body {
     filter: blur($radius);
 }
 
+@mixin saturate($amount) {
+    -webkit-filter: blur($amount);
+    -moz-filter: blur($amount);
+    -o-filter: blur($amount);
+    -ms-filter: blur($amount);
+    filter: blur($amount);
+}
+
 #container{	
 	position:absolute;
 	height:100%;
@@ -98,11 +106,12 @@ a:hover {
 }
 
 .list {
+    overflow-y:auto;
 	position:absolute;
     float: left;
     background-color: #6D7587;
     width: 200px;
-	height:auto;
+	height:100%;
 	min-height:100%;
     @include shadow(-2px 0 6px rgba(0, 0, 0, 0.2) inset, 0 8px 8px -8px rgba(0, 0, 0, 0.3) inset);
 }
@@ -130,8 +139,9 @@ a:hover {
 }
 
 .edit {
+    overflow-y:auto;
 	width:auto;
-	height:auto;
+	height:100%;
 	min-height:100%;
     margin-left: 200px;
 	word-wrap: break-word;
@@ -215,19 +225,17 @@ input[type="text"]{
 // }
 
 textarea {
-    border-radius: 8px;
     padding: 4px;
     resize: none; 
-    @include borderbox;
 }
 
 .new_character_bio {
     margin-top: 8px;
     margin-bottom: 12px;
-    width: 100%;
+    width: 80%;
     // Don't allow resizing
-    min-width: 100%;
-    max-width: 100%;
+    min-width: 80%;
+    max-width: 80%;
     line-height: 12px;
     height: 160px;
     min-height: 160px;
@@ -236,7 +244,20 @@ textarea {
 
 .new_character_name {
     margin-top: 4px;
-    width: 100%;
+    width: 80%;
+    margin:auto;
+}
+
+#notice {
+    position:fixed;
+    height:100px;
+    width:200px;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-100px;
+    text-align:center;
+    background-color:white;
 }
 
 // input[type=text],

@@ -9,7 +9,8 @@
 <body>
 <div class="new_character">
 </div>
-<div class="background">
+<div id="notice"></div>
+<div class="background", onclick="cancelNewCharacter();">
 <div id="container">
 <div class="topbar">
 	<%= link_to(new_character_path, remote: true) do %>

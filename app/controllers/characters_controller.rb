@@ -16,6 +16,13 @@ class CharactersController < ApplicationController
 		end
 	end
 
+	def character_range
+		@characters = Character.where(updated_at: params[:from_date]..params[:to_date])
+		respond_to do |format|
+			format.json{render json: @characters.to_json(include: {tags: {only: [:key, :value]}})}
+		end
+	end
+
 	def new
 		@character = Character.new
 		respond_to do |format|
@@ -46,7 +53,7 @@ class CharactersController < ApplicationController
 		cookies.permanent[:character_id] = @character.id
 		respond_to do |format|
 			format.js{}
-			format.json {render json: @character.to_json(:include => { :tags => { :only => [:key, :value]}})}
+			format.json {render json: @character.to_json(include: { :tags => { :only => [:key, :value]}})}
 		end
 	end
 

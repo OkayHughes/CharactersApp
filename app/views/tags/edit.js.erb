@@ -1,1 +1,1 @@
-$(".<%= @tag.key %>").html("<%= escape_javascript(render partial: 'edit_tag', locals: {:character => Character.find(cookies[:character_id]), :tag => @tag }) %>");
+$("[name='<%= @tag.key %>']").html("<%= escape_javascript(render partial: 'edit_tag', locals: {:character => Character.find(cookies[:character_id]), :tag => @tag }) %>");

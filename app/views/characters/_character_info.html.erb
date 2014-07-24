@@ -1,7 +1,11 @@
+<div class="show_character_div">
 <h2 class="name"><%= character.name %></h2>
 <p class="bio"><%= character.bio %></p>
-<div class="edit-button">
-<%= link_to(edit_character_path(character), remote: true) do%>
-    <%= button_to "Edit" %>
+</div>
+<div class="edit_character_div">
+<%= form_for(character, remote: true) do |f| %>
+	<%= f.text_field(:name, value: character.name) %><br>
+	<%= f.text_area(:bio, value: character.bio, cols:"20", rows:"5") %><br>
+	<%= f.submit("Submit Changes") %>
 <% end %>
 </div>

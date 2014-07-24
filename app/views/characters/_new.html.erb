@@ -5,9 +5,6 @@
     	<%= f.text_field(:name, placeholder: "Name", class:"new_character_name") %><br>
     	</div>
     	<%= f.text_area(:bio, placeholder: "Bio", class:"new_character_bio") %><br>
-    	<span style="position:relative; display:inline">
-    	<%= f.submit("Create Character", style:"float:left; margin-left:80px") %>
+    	<%= f.submit("Create Character") %>
     <% end %>
-    <%= button_tag("Cancel", onclick:"cancelNewCharacter();")%>
-    </span>
 </div>

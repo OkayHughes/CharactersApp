@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :characters
   resources :tags
+
+  match "/character_range/:from_date/:to_date", to: "characters#character_range", via: "get"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

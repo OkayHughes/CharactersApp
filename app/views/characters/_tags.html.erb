@@ -2,7 +2,7 @@
 <% if character.tags.count != 0 %>
 
     <% character.tags.each do |t| %>
-    <li class="<%= t.key %>" style="display:inline-block;"><%= t.key << ": " << t.value %>
+    <li name="<%= t.key %>" style="display:inline-block;"><%= t.key << ": " << t.value %>
     <div class="edit-button", style="display:inline-block;">
     <%= link_to(edit_tag_path(t), remote: true, style: "display:inline-block;") do %>
     <p class="edit-link">Edit</p>

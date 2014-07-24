@@ -1,6 +1,7 @@
 class Tag < ActiveRecord::Base
 	belongs_to :character
-	validates :key, uniqueness: {scope: :character}, presence: true
+	#optional uniqueness within character uniqueness: {scope: :character},
+	validates :key, presence: true
 	validates :value, presence: true
 	
 end
