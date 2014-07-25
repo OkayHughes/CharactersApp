@@ -16,8 +16,8 @@ class CharactersController < ApplicationController
 			format.html{}
 			format.json{
 				if params[:from]
-					@characters = Character.where(updated_at: params[:from]..DateTime.now.to_s)
-					@characters = Character.where(updated_at: params[:from]..params[:to]) if params[:to]
+					@characters = Character.where(updated_at: params[:from].to_datetime..DateTime.now)
+					@characters = Character.where(updated_at: params[:from].to_datetime..params[:to].to_datetime) if params[:to]
 					render json: @characters.to_json(include: {tags: {only: [:key, :value]}})
 				else
 					render json: @characters.to_json(include: {tags: {only: [:key, :value]}})
