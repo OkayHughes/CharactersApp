@@ -2,11 +2,7 @@
 $(document).ready(function() {
 	$(".edit-button").hide();
     $(".edit_character_div").hide();
-	$(".background").css({"-webkit-filter": "blur(0px)",
-    "-moz-filter": "blur(0px)",
-    "-o-filter": "blur(0px)",
-    "-ms-filter": "blur(0px)",
-    "filter" : "blur(0px)"});
+    $(".background").css("opacity", "1");
 
 })
 
@@ -29,9 +25,5 @@ function editToggle(){
 
 function cancelNewCharacter(){
 	$(".new_character").html('');
-	$(".background").css({"-webkit-filter": "blur(0px)",
-    "-moz-filter": "blur(0px)",
-    "-o-filter": "blur(0px)",
-    "-ms-filter": "blur(0px)",
-    "filter" : "blur(0px)"});
+    $(".background").css("opacity", "1");
 }
