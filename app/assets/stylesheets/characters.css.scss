@@ -188,13 +188,12 @@ a:hover {
 .new_character_box{
 	position:fixed;
 	left:50%;
-	top:50%;
-	margin-left:-250px;
-	margin-top:-125px;
+	top:100px;
+    margin-left:-250px;
 	z-index:1000000020;
     padding: 10px;
-	width:500px;
-	height:250px;
+	width:600px;
+	height:auto;
     background-color: #444;
     text-align:center;
     @include shadow(0 0 16px rgba(0, 0, 0, 0.4));
@@ -205,7 +204,7 @@ a:hover {
 .background {
 	position:fixed;
     background: rgba(0, 0, 0, 0.5);
-    z-index:100;
+    z-index:-1;
 	width:100%;
 	height:100%;
 	transition: .5s;
@@ -213,6 +212,7 @@ a:hover {
 
 input[type="text"]{
     padding: 0 6px;
+    color: #444;
 }
 
 // input[type="text"],
@@ -229,7 +229,8 @@ input[type="text"]{
 
 textarea {
     padding: 4px;
-    resize: none; 
+    resize: none;
+    color: #444;
 }
 
 #new_character_name {
@@ -255,30 +256,74 @@ textarea {
 }
 
 input#character_name {
-    width: 200px;
-    font: 1.5em serif bold;
-    margin-top: 0.83em;
-    margin-bottom: 0.83em;
+    width: 496px;
+    font: 30px serif bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    border-left: 0px;
+    border-right:0px;
+    border-top:0px;
+    margin-bottom:-1px;
+    @include shadow(0 0 4px rgba(0, 0, 0, 0.2));
 }
 
 textarea#character_bio {
-    width: 100%;
-    height: 150px;
-    font: 1em serif;
+    @include shadow(0 0 4px rgba(0, 0, 0, 0.2));
+    border-top:1px solid rgba(255, 255, 255, 1);
+    border-left: 0px;
+    border-right:0px;
+    border-bottom:0px;
+    width: 500px;
+    height: 120px;
+    font: 15px serif;
 }
 
-#new_character_bio {
-    margin-top: 8px;
-    margin-bottom: 12px;
-    width: 80%;
-    // Don't allow resizing
-    min-width: 80%;
-    max-width: 80%;
-    line-height: 12px;
-    height: 160px;
-    min-height: 160px;
-    max-height: 160px;
+#character_labels{
+    z-index:80;
+    font-size:30px;
+    margin-right:10px;
+    float:left;
+    text-align:right;
 }
+
+#character_submit{
+    margin-top:60px;
+    font: 1em serif;
+    border:none;
+    color:white;
+    font-size:20px;
+    background-color:rgba(0,0,0,0);
+}
+
+#character_submit:hover, #character_submit:visited, 
+#character_submit:link, #character_submit:active{
+    border:none;
+    outline:none;
+    color:#6D7587;
+    text-decoration:none;
+}
+#new_character_heading{
+    font-size:40px;
+}
+#new_character_labels{
+    margin-top:40px;
+    font-size:30px;
+    margin-right:10px;
+    float:left;
+    text-align:right;
+}
+
+// #new_character_bio {
+//     margin-top: 8px;
+//     margin-bottom: 12px;
+//     width: 80%;
+//     // Don't allow resizing
+//     min-width: 80%;
+//     max-width: 80%;
+//     line-height: 12px;
+//     height: 160px;
+//     min-height: 160px;
+//     max-height: 160px;
+// }
 
 #new-tag-content{
     display:none;
@@ -308,7 +353,8 @@ textarea#character_bio {
 
 #how-to-cancel {
     margin-top: 10px;
-    color: #303030;
+    //color: #303030;
+    color: #6d7587;
 }
 
 // Webkit hardware acceleration hack

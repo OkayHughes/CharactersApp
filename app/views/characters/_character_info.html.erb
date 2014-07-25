@@ -5,9 +5,17 @@
 </div>
 <% end %>
 <% if edit %>
+
 <%= form_for(character, remote: true) do |f| %>
+	<span id="character_labels">
+	<%= f.label(:name, id:"character_name_label") %>:<br>
+	<%= f.label(:bio, id:"character_bio_label") %>:<br>
+	<%= f.submit("Submit", id:"character_submit")%><br>
+	</span>
+	<span >
 	<%= f.text_field(:name, value: character.name) %><br>
 	<%= f.text_area(:bio, value: character.bio) %><br>
-	<%= f.submit("Submit Changes") %>
+	</span>
+	
 <% end %>
 <% end %>
