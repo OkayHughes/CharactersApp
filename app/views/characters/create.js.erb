@@ -1,4 +1,6 @@
 $(".list").html("<%= escape_javascript(render partial: 'list', locals: {:characters => Character.all } )%>");
 $(".new_character").html('');
+<% if @character.id %>
 $(".edit").html("<%= escape_javascript(render partial: 'edit', locals: { :character => @character, :tag => Tag.new, :edit => nil }) %>");
+<% end %>
 $(".background").css("opacity", "1");
