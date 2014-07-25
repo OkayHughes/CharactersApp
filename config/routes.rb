@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'characters#index'
 
-  resources :characters, except: :index
-
+  resources :characters, except: [:index, :create]
+  match "/characters(.:format)(?from=:from_date(&to=:to_date))", to: "characters#index", via: "get", as: "characters"
+  post '/characters' => 'characters#create'
   resources :tags
 
   match "/character_range/:from_date/:to_date", to: "characters#character_range", via: "get"
