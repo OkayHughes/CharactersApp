@@ -1,3 +1,12 @@
+<script>
+$(document).ready(function(){
+    if (<%= edit ? "true" : "false" %>){
+        $("#new-tag-location").replaceWith($("#new-tag-content").html());
+    } else {
+        $("#new-tag-location").html('');
+    }
+});
+</script>
 <ul class="tags">
 <% if character.tags.count != 0 %>
 

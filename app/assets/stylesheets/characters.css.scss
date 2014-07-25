@@ -170,10 +170,10 @@ a:hover {
     @include borderbox;
 }
 
-.edit ul.tags li:first-child {
+.edit ul.tags li:first-of-type {
     border-radius: 6px 6px 0 0;
 }
-.edit ul.tags li:last-child {
+.edit ul.tags li:last-of-type {
     border-radius: 0 0 6px 6px;
 }
 .edit ul.tags li:only-of-type {
