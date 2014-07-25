@@ -3,7 +3,6 @@ $(document).ready(function() {
 	$(".edit-button").hide();
     $(".edit_character_div").hide();
     $(".background").css("opacity", "1");
-
 })
 
 $(document).keydown(function(e){
@@ -18,6 +17,7 @@ function editToggle(){
     $(".edit-button").toggle();
     if ($('.edit-topbar').text() == 'Edit'){
         $('.edit-topbar').text('View')
+        $("#new-tag-list").hide();
     } else {
         $('.edit-topbar').text('Edit')
     }
@@ -27,3 +27,4 @@ function cancelNewCharacter(){
 	$(".new_character").html('');
     $(".background").css("opacity", "1");
 }
+

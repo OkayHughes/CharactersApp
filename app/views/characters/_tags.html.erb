@@ -1,4 +1,4 @@
-
+<ul class="tags">
 <% if character.tags.count != 0 %>
 
     <% character.tags.each do |t| %>
@@ -17,12 +17,16 @@
     <li>This character has no tags yet.</li>
 
 <% end %>
+    <div id="new-tag-location"> </div>
+</ul>
 
-<li class="new">
+<div id="new-tag-content">
+    <li class="new">
     <%= form_for(tag, remote: true) do |t| %>
         <%= t.text_field(:key, placeholder: "Category") %>
         <%= t.text_field(:value, placeholder: "Value") %>
         <%= t.hidden_field(:character_id, value: character.id) %>
         <%= t.submit %>
     <% end %>
-</li>
+    </li>
+</div>

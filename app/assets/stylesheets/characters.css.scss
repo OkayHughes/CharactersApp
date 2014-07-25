@@ -6,7 +6,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #333;
+    background-color: #000;
 }
 
 @mixin borderbox {
@@ -176,25 +176,25 @@ a:hover {
 .edit ul.tags li:last-child {
     border-radius: 0 0 6px 6px;
 }
+.edit ul.tags li:only-of-type {
+    border-radius: 6px 6px 6px 6px;
+}
 
 .edit ul.tags li.new {
     padding-top: 3px;
     height: 30px;
 }
 
-.new_character {
-    z-index:100;
-}
 .new_character_box{
-    position:fixed;
-    left:50%;
-    top:50%;
-    margin-left:-250px;
-    margin-top:-125px;
-    z-index:1000000020;
+	position:fixed;
+	left:50%;
+	top:50%;
+	margin-left:-250px;
+	margin-top:-125px;
+	z-index:1000000020;
     padding: 10px;
-    width:500px;
-    height:250px;
+	width:500px;
+	height:250px;
     background-color: #444;
     text-align:center;
     @include shadow(0 0 16px rgba(0, 0, 0, 0.4));
@@ -280,6 +280,10 @@ textarea#character_bio {
     max-height: 160px;
 }
 
+#new-tag-content{
+    display:none;
+}
+
 // input[type=text],
 // input[type="submit"],
 // input[type="button"],
@@ -308,6 +312,6 @@ textarea#character_bio {
 }
 
 // Webkit hardware acceleration hack
-.background {
+*:not(html) {
     -webkit-transform: translate3d(0, 0, 0);
 }
