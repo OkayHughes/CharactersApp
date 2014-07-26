@@ -1,4 +1,5 @@
 $(".list").html("<%= escape_javascript(render partial: 'list', locals: {:characters => Character.all } )%>");
 $(".new_character").html('');
 $(".edit").html("<%= escape_javascript(render partial: 'edit', locals: { :character => @character, :tag => Tag.new, :edit => nil }) %>");
+ $(".edit-topbar").html("<%= escape_javascript(render partial: 'layouts/edit_button', locals: {:character => current_character})%>");
 $(".background").css("opacity", "1");

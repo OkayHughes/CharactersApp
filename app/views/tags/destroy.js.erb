@@ -1,1 +1,1 @@
-$(".tags").html("<%= escape_javascript(render partial: 'characters/tags', locals: {:character => Character.find(cookies[:character_id]), :tag => Tag.new, :edit => nil}) %>");
+$(".tags").html("<%= escape_javascript(render partial: 'characters/tags', locals: {:character => current_character, :tag => Tag.new, :edit => nil}) %>");

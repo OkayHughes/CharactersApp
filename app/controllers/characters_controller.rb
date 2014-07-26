@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-
+	include CharactersHelper
 	def index
 		@characters = Character.all
 		edit = nil
@@ -58,6 +58,7 @@ class CharactersController < ApplicationController
 	def create
 		@character = Character.new(character_params)
 		if @character.save
+			set_current_character(@character.id)
 			flash[:notice] = "Character added"
 			respond_to do |format|
 				format.js{}
@@ -74,7 +75,7 @@ class CharactersController < ApplicationController
 
 	def show
 		@character = Character.find(params[:id])
-		cookies.permanent[:character_id] = @character.id
+		set_current_character(@character.id)
 		respond_to do |format|
 			format.js{}
 			format.json {render json: @character.to_json(include: { :tags => { :only => [:key, :value]}})}
