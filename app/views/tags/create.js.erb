@@ -1,1 +1,1 @@
-$(".tags").html("<%= escape_javascript(render partial: 'characters/tags', locals: {:character => current_character, :tag => Tag.new, :edit => true}) %>");
+$("#tags").html("<%= escape_javascript(render partial: 'characters/tags', locals: {:character => current_character, :tag => Tag.new, :edit => true}) %>");
