@@ -1,6 +1,7 @@
-$(".list").html("<%= escape_javascript(render partial: 'list', locals: {:characters => Character.all } )%>");
 $(".new_character").html('');
 <% if @character.id %>
+$(".list").html("<%= escape_javascript(render partial: 'list', locals: {:characters => Character.all } )%>");
 $(".edit").html("<%= escape_javascript(render partial: 'edit', locals: { :character => @character, :tag => Tag.new, :edit => nil }) %>");
+$(".edit-topbar").html("<%= escape_javascript(render partial: 'layouts/edit_button', locals: {:character => current_character})%>");
 <% end %>
 $(".background").css("opacity", "1");

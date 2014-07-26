@@ -1,3 +1,2 @@
- $(".edit").html("<%= escape_javascript(render partial: 'edit', locals: { :character => Character.find(cookies[:character_id]), :tag => Tag.new, :edit => true }) %>");
- $(".edit-topbar").html("<%= escape_javascript(render partial: 'layouts/view_button', locals: {:character => Character.find(cookies[:character_id])})%>");
- $("#new-tag-location").replaceWith($("#new-tag-content").html());
+ $(".edit").html("<%= escape_javascript(render partial: 'edit', locals: { :character => current_character, :tag => Tag.new, :edit => true }) %>");
+ $(".edit-topbar").html("<%= escape_javascript(render partial: 'layouts/view_button', locals: {:character => current_character})%>");
