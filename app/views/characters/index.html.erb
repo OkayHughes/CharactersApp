@@ -3,7 +3,7 @@
     <%= link_to(new_character_path, remote: true) do %>
     <div class="plus">+</div>
     <% end %>
-    <div class="edit-topbar"><%= render partial: "layouts/edit_button", locals: {:character => @character}%></div>
+    <div class="edit-topbar"><%= render partial: "layouts/edit_button", locals: {:character => @character} if @character%></div>
 </div>
 <div class="main">
     <div class="list">
@@ -14,7 +14,7 @@
         <% end %>
     </div>
     <div class="edit">
-        <% if @character.id %>
+        <% if @character %>
         <%= render(partial: "edit", locals: {:character => @character, :tag => @tag, :edit => nil}) %>
         <% end %>
     </div>

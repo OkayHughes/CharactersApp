@@ -9,8 +9,6 @@ class CharactersController < ApplicationController
 		elsif @characters.first
 			@character= @characters.first
 			cookies.permanent[:character_id] = @characters.first.id
-		else
-			@character = Character.new
 		end
 		respond_to do |format|
 			format.html{}
