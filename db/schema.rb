@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722013154) do
+ActiveRecord::Schema.define(version: 20140730191751) do
 
   create_table "characters", force: true do |t|
     t.string   "bio"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140722013154) do
     t.string   "character_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "depth"
   end
 
   add_index "tags", ["character_id"], name: "index_tags_on_character_id"

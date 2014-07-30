@@ -36,6 +36,7 @@ $(document).ready(function(){
         <%= t.text_field(:key, placeholder: "Category") %>
         <%= t.text_field(:value, placeholder: "Value") %>
         <%= t.hidden_field(:character_id, value: character.id) %>
+        <%= t.hidden_field(:depth, value: 0) %>
         <%= t.submit %>
     <% end %>
     </li>

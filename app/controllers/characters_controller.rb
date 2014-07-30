@@ -8,7 +8,7 @@ class CharactersController < ApplicationController
 			@character = Character.find(cookies[:character_id])
 		elsif @characters.first
 			@character= @characters.first
-			cookies.permanent[:character_id] = @characters.first.id
+			cookies.permanent[:character_id] = @characters.first.ids
 		end
 		respond_to do |format|
 			format.html{}
