@@ -3,5 +3,5 @@ class Tag < ActiveRecord::Base
 	#optional uniqueness within character uniqueness: {scope: :character},
 	validates :key, presence: true
 	validates :value, presence: true
-	
+
 end

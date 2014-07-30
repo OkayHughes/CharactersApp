@@ -16,9 +16,9 @@ class CharactersController < ApplicationController
 				if params[:from]
 					@characters = Character.where(updated_at: params[:from].to_datetime..DateTime.now)
 					@characters = Character.where(updated_at: params[:from].to_datetime..params[:to].to_datetime) if params[:to]
-					render json: @characters.to_json(include: {tags: {only: [:key, :value]}})
+					render json: @characters.to_json(include: {tags: {only: [:key, :value, :depth]}})
 				else
-					render json: @characters.to_json(include: {tags: {only: [:key, :value]}})
+					render json: @characters.to_json(include: {tags: {only: [:key, :value, :depth]}})
 				end
 				}
 		end
