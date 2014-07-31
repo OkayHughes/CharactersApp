@@ -35,8 +35,8 @@ $(document).ready(function(){
     <%= form_for(tag, remote: true) do |t| %>
         <%= t.text_field(:key, placeholder: "Category") %>
         <%= t.text_field(:value, placeholder: "Value") %>
+        <%= t.number_field(:depth, step: 1, value: 0) %>
         <%= t.hidden_field(:character_id, value: character.id) %>
-        <%= t.hidden_field(:depth, value: 0) %>
         <%= t.submit %>
     <% end %>
     </li>

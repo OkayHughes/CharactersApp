@@ -2,13 +2,13 @@
 <div class="show_character_div">
 <h2 class="name"><%= character.name %></h2>
 <p class="bio"><%= character.bio %></p>
-<p class="abilities"> Health: <%= character.health %>, Deviation: <%= character.health_sigma%></p> |
-<p class="abilities"> Strength: <%= character.strength %>, Deviation: <%= character.strength_sigma%></p> |
-<p class="abilities"> Dexterity: <%= character.dexterity %>, Deviation: <%= character.dexterity_sigma%></p> |
-<p class="abilities"> Constitution: <%= character.constitution %>, Deviation: <%= character.constitution_sigma%></p> |
-<p class="abilities"> Intelligence: <%= character.intelligence %>, Deviation: <%= character.intelligence_sigma%></p> |
-<p class="abilities"> Wisdom: <%= character.wisdom %>, Deviation: <%= character.wisdom_sigma%></p> |
-<p class="abilities"> Charisma: <%= character.charisma %>, Deviation: <%= character.charisma_sigma%></p> 
+<p class="abilities"> Health: <%= character.health %>, σ: <%= character.health_sigma%></p> |
+<p class="abilities"> Strength: <%= character.strength %>, σ: <%= character.strength_sigma%></p> |
+<p class="abilities"> Dexterity: <%= character.dexterity %>, σ: <%= character.dexterity_sigma%></p> |
+<p class="abilities"> Constitution: <%= character.constitution %>, σ: <%= character.constitution_sigma%></p> |
+<p class="abilities"> Intelligence: <%= character.intelligence %>, σ: <%= character.intelligence_sigma%></p> |
+<p class="abilities"> Wisdom: <%= character.wisdom %>, σ: <%= character.wisdom_sigma%></p> |
+<p class="abilities"> Charisma: <%= character.charisma %>, σ: <%= character.charisma_sigma%></p> 
 </div>
 <% end %>
 <% if edit %>
@@ -25,7 +25,7 @@
 	<%= f.label(:charisma) %><br>
 	</div>
 	<div id="abilities_container">
-	Base: &nbsp
+	<div class="row_labels">Base:</div>
 	<%= f.number_field(:health, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:strength, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:dexterity, step: 1, class:"abilities_field") %>
@@ -33,7 +33,7 @@
 	<%= f.number_field(:intelligence, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:wisdom, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:charisma, step: 1, class:"abilities_field") %><br>
-	Sigma: 
+	<div class="row_labels">σ:</div> 
 	<%= f.number_field(:health_sigma, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:strength_sigma, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:dexterity_sigma, step: 1, class:"abilities_field") %>
