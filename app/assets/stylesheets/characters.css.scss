@@ -185,21 +185,49 @@ a:hover {
     height: 30px;
 }
 
+.abilities{
+    display:inline-block;
+    font-size:10px;
+}
+
+#abilities_container{
+    margin-top:10px;
+}
+.abilities_field{
+    max-width:60px;
+}
+
+#ability_labels_container {
+    margin-left:50px;
+}
+
 .new_character_box{
 	position:fixed;
 	left:50%;
 	top:50%;
-	margin-left:-250px;
-	margin-top:-125px;
+	margin-left:-300px;
+	margin-top:-175px;
 	z-index:1000000020;
     padding: 10px;
-	width:500px;
-	height:250px;
+	width:600px;
+	height:350px;
     background-color: #444;
     text-align:center;
     @include shadow(0 0 16px rgba(0, 0, 0, 0.4));
     border-radius: 10px;
     color: white;
+}
+
+
+#new_abilities_container{
+    margin-top:10px;
+}
+
+#create_character_button{
+    margin-top:10px;
+}
+.new_abilities_field{
+    max-width:60px;
 }
 
 .background {
@@ -307,7 +335,7 @@ textarea#character_bio {
 // }
 
 #how-to-cancel {
-    margin-top: 10px;
+
     color: #303030;
 }
 

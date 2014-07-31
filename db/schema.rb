@@ -11,13 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730191751) do
+ActiveRecord::Schema.define(version: 20140730235920) do
 
   create_table "characters", force: true do |t|
     t.string   "bio"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "health"
+    t.integer  "health_sigma"
+    t.integer  "strength"
+    t.integer  "strength_sigma"
+    t.integer  "dexterity"
+    t.integer  "dexterity_sigma"
+    t.integer  "constitution"
+    t.integer  "constitution_sigma"
+    t.integer  "intelligence"
+    t.integer  "intelligence_sigma"
+    t.integer  "wisdom"
+    t.integer  "wisdom_sigma"
+    t.integer  "charisma"
+    t.integer  "charisma_sigma"
   end
 
   create_table "tags", force: true do |t|

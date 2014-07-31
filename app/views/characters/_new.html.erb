@@ -3,7 +3,30 @@
     <%= form_for(character, remote: true) do |f| %>
     	<%= f.text_field(:name, placeholder: "Name", id:"new_character_name") %><br>
     	<%= f.text_area(:bio, placeholder: "Bio", id:"new_character_bio") %><br>
-    	<%= f.submit("Create Character") %>
+        <div id="new_labels_container"> </div>
+        <%= f.label(:health) %> |
+        <%= f.label(:strength) %> |
+        <%= f.label(:dexterity) %> |
+        <%= f.label(:constitution) %> |
+        <%= f.label(:intelligence) %> |
+        <%= f.label(:wisdom) %> |
+        <%= f.label(:charisma) %><br>
+        <div id="new_abilities_container">
+        <%= f.number_field(:health, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:strength, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:dexterity, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:constitution, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:intelligence, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:wisdom, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:charisma, step: 1, class:"new_abilities_field") %><br>
+        <%= f.number_field(:health_sigma, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:strength_sigma, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:dexterity_sigma, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:constitution_sigma, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:intelligence_sigma, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:wisdom_sigma, step: 1, class:"new_abilities_field") %>
+        <%= f.number_field(:charisma_sigma, step: 1, class:"new_abilities_field") %><br>
+    	<%= f.submit("Create Character", id:"create_character_button") %>
     <% end %>
     <div id="how-to-cancel"> Click outside to cancel</div>
 </div>

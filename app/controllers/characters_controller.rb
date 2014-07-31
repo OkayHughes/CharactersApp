@@ -112,7 +112,14 @@ class CharactersController < ApplicationController
 	private
 
 	def character_params
-		params.require(:character).permit(:bio, :name)
+		params.require(:character).permit(:bio, :name, :health,
+										  :strength, :dexterity,
+										  :constitution, :intelligence, 
+										  :wisdom, :charisma,
+										  :health_sigma,:strength_sigma,
+										  :dexterity_sigma, :constitution_sigma,
+										  :intelligence_sigma, :wisdom_sigma, 
+										  :charisma_sigma)
 	end
 
 end
