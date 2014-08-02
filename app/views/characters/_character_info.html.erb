@@ -14,8 +14,8 @@ if (<%= character.unique ? "true" : "false"%>){
 <p class="abilities"> Dexterity: <%= character.dexterity %><%= raw ",&nbsp σ: #{character.dexterity_sigma}" if !(character.unique) %></p> |
 <p class="abilities"> Constitution: <%= character.constitution %><%= raw ",&nbsp σ: #{character.constitution_sigma}" if !(character.unique) %></p> |
 <p class="abilities"> Intelligence: <%= character.intelligence %><%= raw ",&nbsp σ: #{character.intelligence_sigma}" if !(character.unique) %></p> |
-<p class="abilities"> Wisdom: <%= character.wisdom %><%= raw ",&nbsp σ:#{character.wisdom_sigma}" if !(character.unique) %></p> |
-<p class="abilities"> Charisma: <%= character.charisma %><%= raw ",&nbsp σ:#{character.charisma_sigma}" if !(character.unique) %></p> 
+<p class="abilities"> Wisdom: <%= character.wisdom %><%= raw ",&nbsp σ: #{character.wisdom_sigma}" if !(character.unique) %></p> |
+<p class="abilities"> Charisma: <%= character.charisma %><%= raw ",&nbsp σ: #{character.charisma_sigma}" if !(character.unique) %></p> 
 </div>
 <% end %>
 <% if edit %>
