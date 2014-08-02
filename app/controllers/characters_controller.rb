@@ -119,7 +119,7 @@ class CharactersController < ApplicationController
 										  :health_sigma,:strength_sigma,
 										  :dexterity_sigma, :constitution_sigma,
 										  :intelligence_sigma, :wisdom_sigma, 
-										  :charisma_sigma)
+										  :charisma_sigma, :unique)
 	end
 
 end

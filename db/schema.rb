@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730235920) do
+ActiveRecord::Schema.define(version: 20140802022954) do
 
   create_table "characters", force: true do |t|
     t.string   "bio"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140730235920) do
     t.integer  "wisdom_sigma"
     t.integer  "charisma"
     t.integer  "charisma_sigma"
+    t.boolean  "unique"
   end
 
   create_table "tags", force: true do |t|

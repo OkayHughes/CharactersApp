@@ -28,3 +28,11 @@ function cancelNewCharacter(){
     $(".background").css("opacity", "1");
 }
 
+function toggleNewSigmas(){
+    $("#new_sigmas").toggle();
+}
+function toggleSigmas(){
+    $("#sigmas").toggle();
+}
+
+

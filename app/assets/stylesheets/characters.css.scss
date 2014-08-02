@@ -193,6 +193,7 @@ a:hover {
 div.row_labels {
     width:40px;
     display:inline-block;
+    text-align:left;
 
 }
 
@@ -228,6 +229,9 @@ div.row_labels {
 #new_abilities_container{
     margin-top:10px;
 }
+#new_ability_labels_container{
+    margin-left:50px;
+}
 
 #create_character_button{
     margin-top:10px;
@@ -235,6 +239,7 @@ div.row_labels {
 .new_abilities_field{
     max-width:60px;
 }
+
 
 .background {
 	position:fixed;
@@ -341,6 +346,11 @@ textarea#character_bio {
 // }
 
 #how-to-cancel {
+    position:fixed;
+    width:300px;
+    top:500px;
+    left:50%;
+    margin-left:-150px;
 
     color: #303030;
 }

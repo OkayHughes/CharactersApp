@@ -23,3 +23,7 @@ $('.abilities_field').on('input', function (event) {
     this.value = this.value.replace(/[^0-9]/g, '');
     $(document).html('');
 });
+
+function toggleElements(path){
+    $(path).toggle();
+}

@@ -1,14 +1,21 @@
+<script>
+$(document).ready(function() {
+if (<%= character.unique ? "true" : "false"%>){
+    $("#sigmas").hide();
+}
+});
+</script>
 <% if !edit %>
 <div class="show_character_div">
 <h2 class="name"><%= character.name %></h2>
 <p class="bio"><%= character.bio %></p>
-<p class="abilities"> Health: <%= character.health %>, σ: <%= character.health_sigma%></p> |
-<p class="abilities"> Strength: <%= character.strength %>, σ: <%= character.strength_sigma%></p> |
-<p class="abilities"> Dexterity: <%= character.dexterity %>, σ: <%= character.dexterity_sigma%></p> |
-<p class="abilities"> Constitution: <%= character.constitution %>, σ: <%= character.constitution_sigma%></p> |
-<p class="abilities"> Intelligence: <%= character.intelligence %>, σ: <%= character.intelligence_sigma%></p> |
-<p class="abilities"> Wisdom: <%= character.wisdom %>, σ: <%= character.wisdom_sigma%></p> |
-<p class="abilities"> Charisma: <%= character.charisma %>, σ: <%= character.charisma_sigma%></p> 
+<p class="abilities"> Health: <%= character.health %><%= raw ",&nbsp σ: #{character.health_sigma}" if !(character.unique) %></p> |
+<p class="abilities"> Strength: <%= character.strength %><%= raw ",&nbsp σ: #{character.strength_sigma}" if !(character.unique) %></p> |
+<p class="abilities"> Dexterity: <%= character.dexterity %><%= raw ",&nbsp σ: #{character.dexterity_sigma}" if !(character.unique) %></p> |
+<p class="abilities"> Constitution: <%= character.constitution %><%= raw ",&nbsp σ: #{character.constitution_sigma}" if !(character.unique) %></p> |
+<p class="abilities"> Intelligence: <%= character.intelligence %><%= raw ",&nbsp σ: #{character.intelligence_sigma}" if !(character.unique) %></p> |
+<p class="abilities"> Wisdom: <%= character.wisdom %><%= raw ",&nbsp σ:#{character.wisdom_sigma}" if !(character.unique) %></p> |
+<p class="abilities"> Charisma: <%= character.charisma %><%= raw ",&nbsp σ:#{character.charisma_sigma}" if !(character.unique) %></p> 
 </div>
 <% end %>
 <% if edit %>
@@ -33,6 +40,7 @@
 	<%= f.number_field(:intelligence, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:wisdom, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:charisma, step: 1, class:"abilities_field") %><br>
+	<span id="sigmas">
 	<div class="row_labels">σ:</div> 
 	<%= f.number_field(:health_sigma, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:strength_sigma, step: 1, class:"abilities_field") %>
@@ -41,6 +49,9 @@
 	<%= f.number_field(:intelligence_sigma, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:wisdom_sigma, step: 1, class:"abilities_field") %>
 	<%= f.number_field(:charisma_sigma, step: 1, class:"abilities_field") %><br>
+	</span>
+    <%= f.label "Unique?" %>
+    <%= f.check_box :unique, onclick:"toggleElements('#sigmas');" %> <br>
 	<%= f.submit("Submit Changes") %>
 	</div>
 <% end %>
