@@ -1,0 +1,36 @@
+<%= form_for(character, remote: true) do |f| %>
+    <%= f.text_field(:name, value: character.name) %><br>
+    <%= f.text_area(:bio, value: character.bio) %><br>
+    <div id="ability_labels_container">
+        <%= f.label(:health) %> |
+        <%= f.label(:strength) %> |
+        <%= f.label(:dexterity) %> |
+        <%= f.label(:constitution) %> |
+        <%= f.label(:intelligence) %> |
+        <%= f.label(:wisdom) %> |
+        <%= f.label(:charisma) %><br>
+    </div>
+    <div id="abilities_container">
+        <div class="row_labels">Base:</div>
+        <%= f.number_field(:health, step: 1, class:"abilities_field") %>
+        <%= f.number_field(:strength, step: 1, class:"abilities_field") %>
+        <%= f.number_field(:dexterity, step: 1, class:"abilities_field") %>
+        <%= f.number_field(:constitution, step: 1, class:"abilities_field") %>
+        <%= f.number_field(:intelligence, step: 1, class:"abilities_field") %>
+        <%= f.number_field(:wisdom, step: 1, class:"abilities_field") %>
+        <%= f.number_field(:charisma, step: 1, class:"abilities_field") %><br>
+        <span id="sigmas">
+            <div class="row_labels">σ:</div> 
+            <%= f.number_field(:health_sigma, step: 1, class:"abilities_field") %>
+            <%= f.number_field(:strength_sigma, step: 1, class:"abilities_field") %>
+            <%= f.number_field(:dexterity_sigma, step: 1, class:"abilities_field") %>
+            <%= f.number_field(:constitution_sigma, step: 1, class:"abilities_field") %>
+            <%= f.number_field(:intelligence_sigma, step: 1, class:"abilities_field") %>
+            <%= f.number_field(:wisdom_sigma, step: 1, class:"abilities_field") %>
+            <%= f.number_field(:charisma_sigma, step: 1, class:"abilities_field") %><br>
+        </span>
+        <%= f.label "Unique?" %>
+        <%= f.check_box :unique, onclick:"toggleElements('#sigmas');" %> <br>
+        <%= f.submit("Submit Changes") %>
+    </div>
+<% end %>
