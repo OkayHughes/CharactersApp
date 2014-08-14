@@ -15,24 +15,29 @@ $(document).ready(function(){
 <ul class="tag-editors">
 <% tag_structure.keys.each do |tag_string| %>
     <li>
-        <h1><%= t %></h1>
+        <h1><%= tag_string %></h1>
         <% category_tags = character.tags.select{|k| k.key == tag_string} %>
         <% category_tags_values = category_tags.map{ |x| x.value } %>
+        <ul>
         <% if category_tags.size != 0 %>
             <% category_tags.each do |this_tag| %>
-                <div name="tag_<%= this_tag.id %>" class="inline-tags"><%= this_tag.key + ": " + this_tag.value %>
+                <li name="tag_<%= this_tag.id %>" class="tag"><%= this_tag.key + ": " + this_tag.value %>
                 <% if edit %>
                     <div class="edit-button inline-tags">
                         <%= link_to(edit_tag_path(this_tag), remote: true) do %>
-                        <span class="edit-link inline-tags">Edit</span>
+                            <span class="edit-link inline-tags">Edit</span>
+                        <% end %>
+                        <%= link_to(tag_path(this_tag), remote: true, method: :delete) do %>
+                            <span class="edit-link inline-tags">Delete</span>
+                        <% end %>
                     </div>
-                    <% end %>
                 <% end %>
-                </div>
+                </li>
             <% end %>
         <% else %>
-            <div>This character has no <%= t.pluralize(0).downcase %></div>
+            <div>This character has no <%= tag_string.pluralize(0).downcase %></div>
         <% end %>
+        </ul>
         
         <% if edit %>
             <%= form_for(tag, remote: true) do |f| %>

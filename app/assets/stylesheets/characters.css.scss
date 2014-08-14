@@ -305,7 +305,7 @@ textarea#character_bio {
 
 ul.tag-editors {
     padding-left: 0px;
-    li {
+    > li {
         padding: 8px;
         margin-bottom: 8px;
         background-color: rgba(0, 0, 0, 0.1);
@@ -316,6 +316,13 @@ ul.tag-editors {
             margin-top: 0;
             margin-bottom: 4px;
             color: #222;
+        }
+    }
+    ul {
+        list-style: none;
+        padding-left: 4px;
+        .tag {
+
         }
     }
 }
