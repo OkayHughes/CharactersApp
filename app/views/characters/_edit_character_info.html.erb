@@ -19,7 +19,7 @@
         <%= f.number_field(:intelligence, step: 1, class:"abilities_field") %>
         <%= f.number_field(:wisdom, step: 1, class:"abilities_field") %>
         <%= f.number_field(:charisma, step: 1, class:"abilities_field") %><br>
-        <span id="sigmas">
+        <span id="sigmas" style="<%= character.unique == true ? "display: none" : "" %>" >
             <div class="row_labels">σ:</div> 
             <%= f.number_field(:health_sigma, step: 1, class:"abilities_field") %>
             <%= f.number_field(:strength_sigma, step: 1, class:"abilities_field") %>
