@@ -16,22 +16,50 @@ $(document).ready(function(){
 <% tag_structure.keys.each do |tag_string| %>
     <li>
         <h1><%= tag_string %></h1>
-        <% category_tags = character.tags.select{|k| k.key == tag_string} %>
+        <% category_tags = character.tags.select{|k| k.key == tag_string and k.depth == 0} %>
         <% category_tags_values = category_tags.map{ |x| x.value } %>
         <ul>
         <% if category_tags.size != 0 %>
             <% category_tags.each do |this_tag| %>
                 <li name="tag_<%= this_tag.id %>" class="tag"><%= this_tag.key + ": " + this_tag.value %>
+                <% subtags = character.tags.select{|k| k.key == this_tag.value and k.depth == 1} %>
                 <% if edit %>
                     <div class="edit-button inline-tags">
                         <%= link_to(edit_tag_path(this_tag), remote: true) do %>
                             <span class="edit-link inline-tags">Edit</span>
                         <% end %>
-                        <%= link_to(tag_path(this_tag), remote: true, method: :delete) do %>
-                            <span class="edit-link inline-tags">Delete</span>
+                        <% if subtags.count == 0 %>
+                            <%= link_to("×", tag_path(this_tag), remote: true, method: :delete, class: "delete-link inline-tags")%>
                         <% end %>
                     </div>
                 <% end %>
+                <ul class="subtags">
+                <% if subtags.count > 0 %>
+                    &mdash; 
+                    <% subtags.each do |subtag| %>
+                        <li name="tag_<%= this_tag.id %>" class="inline-subtag">
+                            <%= subtag.key + ": " + subtag.value %>
+                            <% if edit %>
+                                <%= link_to("×", tag_path(subtag), remote: true, method: :delete, class: "delete-link")%>
+                            <% end %>
+                        </li>
+                    <% end %>                  
+                <% end %>
+                <% if edit %>
+                    <% if tag_structure[tag_string][this_tag.value].size > 0 %>
+                        <div class="inline-subtag">
+                        <% sub_values = subtags.map{ |y| y.value } %>
+                        <%= form_for(tag, remote: true) do |f| %>
+                            <%= f.select(:value, tag_structure[tag_string][this_tag.value].select{ |x| not sub_values.include?(x) }.map{ |x| [x, x] }) %>
+                            <%= f.hidden_field(:key, value: this_tag.value) %>
+                            <%= f.hidden_field(:character_id, value: character.id) %>
+                            <%= f.hidden_field(:depth, value: 1) %>
+                            <%= f.submit %>
+                        <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+                </ul>  
                 </li>
             <% end %>
         <% else %>
@@ -44,6 +72,7 @@ $(document).ready(function(){
                 <%= f.select(:value, tag_structure[tag_string].keys.select{ |x| not category_tags_values.include?(x) }.map{ |x| [x, x] }) %>
                 <%= f.hidden_field(:key, value: tag_string) %>
                 <%= f.hidden_field(:character_id, value: character.id) %>
+                <%= f.hidden_field(:depth, value: 0) %>
                 <%= f.submit %>
             <% end %>
         <% end %>
