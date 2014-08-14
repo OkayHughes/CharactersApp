@@ -1,0 +1,66 @@
+{
+    "Location": {
+        "City": [
+            "Market",
+            "Square",
+            "Street",
+            "Shop",
+            "Wall"
+        ],
+        "Town": [
+            "Market",
+            "Square",
+            "Street",
+            "Shop"
+        ],
+        "Village": [
+            "Market",
+            "Square",
+            "Street",
+            "Shop"
+        ],
+        "Castle": [
+            "Keep",
+            "Throne Room"
+        ],
+        "Swamp": [],
+        "Dungeon": []
+    },
+    "Disposition": {
+        "Friendly": [],
+        "Grumpy": [],
+        "Trusting": [],
+        "Suspiscious": [],
+        "Angry": [],
+        "Haughty": [],
+        "Humble": []
+    },
+    "Race": {
+        "Human": [],
+        "Goblin": [],
+        "Kobold": []
+    },
+    "Occupation": {
+        "Shopkeeper": [
+            "Food",
+            "Items",
+            "Weapons",
+            "Armor",
+            "Luxury"
+        ],
+        "Beggar": [
+            "Beggar's Guild",
+            "Homeless"
+        ],
+        "Guard": [
+            "Mercenary",
+            "Public"
+        ]
+    },
+    "Story Role": {
+        "Give Item": [],
+        "Give Quest": [],
+        "Helper": [],
+        "Antagonist": []
+    }
+}
