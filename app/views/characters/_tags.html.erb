@@ -10,43 +10,44 @@ $(document).ready(function(){
 
 <% tag_structure = JSON.load(File.read(Rails.root.join("public", "tagdata.json"))) %>
 
-<ul class="tags">
-<% if character.tags.count != 0 %>
-
-    <% character.tags.each do |t| %>
-        <li name="tag_<%= t.id %>" class="inline-tags"><%= t.key + ": " + t.value %>
-        <% if edit %>
-            <div class="edit-button inline-tags">
-                <%= link_to(edit_tag_path(t), remote: true) do %>
-                <span class="edit-link inline-tags">Edit</span>
-            </div>
-            <% end %>
-        <% end %>
-        </li>
-    <% end %>
-<% else %>
-
-    <li>This character has no tags yet.</li>
-
-<% end %>
-    <div id="new-tag-location"> </div>
-</ul>
+<div id="new-tag-location"> </div>
 
 <ul class="tag-editors">
-<% tag_structure.keys.each do |tag| %>
+<% tag_structure.keys.each do |tag_string| %>
     <li>
-    <%= tag %>
-    <%= character.tags.select{|k| k.key == tag} %>
-    <%= form_for(tag, remote: true) do |t| %>
-        <%= t.select(:key, tag_structure[tag].keys.map{ |x| [x, x] }) %>
-        <%= t.submit %>
-    <% end %>
+        <h1><%= t %></h1>
+        <% category_tags = character.tags.select{|k| k.key == tag_string} %>
+        <% category_tags_values = category_tags.map{ |x| x.value } %>
+        <% if category_tags.size != 0 %>
+            <% category_tags.each do |this_tag| %>
+                <div name="tag_<%= this_tag.id %>" class="inline-tags"><%= this_tag.key + ": " + this_tag.value %>
+                <% if edit %>
+                    <div class="edit-button inline-tags">
+                        <%= link_to(edit_tag_path(this_tag), remote: true) do %>
+                        <span class="edit-link inline-tags">Edit</span>
+                    </div>
+                    <% end %>
+                <% end %>
+                </div>
+            <% end %>
+        <% else %>
+            <div>This character has no <%= t.pluralize(0).downcase %></div>
+        <% end %>
+        
+        <% if edit %>
+            <%= form_for(tag, remote: true) do |f| %>
+                <%= f.select(:value, tag_structure[tag_string].keys.select{ |x| not category_tags_values.include?(x) }.map{ |x| [x, x] }) %>
+                <%= f.hidden_field(:key, value: tag_string) %>
+                <%= f.hidden_field(:character_id, value: character.id) %>
+                <%= f.submit %>
+            <% end %>
+        <% end %>
     </li>
 <% end %>
 </ul>
 
 <div id="new-tag-content">
-    <li class="new">
+    <div class="new">
     <%= form_for(tag, remote: true) do |t| %>
         <%= t.text_field(:key, placeholder: "Category") %>
         <%= t.text_field(:value, placeholder: "Value") %>
@@ -54,5 +55,5 @@ $(document).ready(function(){
         <%= t.hidden_field(:character_id, value: character.id) %>
         <%= t.submit %>
     <% end %>
-    </li>
+    </div>
 </div>
