@@ -24,7 +24,8 @@
             "Throne Room"
         ],
         "Swamp": [],
-        "Dungeon": []
+        "Dungeon": [],
+        "Farm": []
     },
     "Race": {
         "Human": [],
@@ -41,9 +42,12 @@
         "Grumpy": [],
         "Trusting": [],
         "Suspiscious": [],
+        "Paranoid": [],
         "Angry": [],
         "Haughty": [],
-        "Humble": []
+        "Humble": [],
+        "Enthusiastic": [],
+        "Apathetic": []
     },
     "Occupation": {
         "Shopkeeper": [
@@ -61,7 +65,9 @@
             "Mercenary",
             "Public"
         ],
-        "Soldier": []
+        "Soldier": [],
+        "Noble": [],
+        "Farmer": []
     },
     "Story Role": {
         "Give Item": [],
