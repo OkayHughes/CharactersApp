@@ -26,19 +26,24 @@
         "Swamp": [],
         "Dungeon": []
     },
+    "Race": {
+        "Human": [],
+        "Goblin": [],
+        "Kobold": [],
+        "Undead": [
+            "Skeleton",
+            "Zombie"
+        ]
+    },
     "Disposition": {
         "Friendly": [],
+        "Hostile": [],
         "Grumpy": [],
         "Trusting": [],
         "Suspiscious": [],
         "Angry": [],
         "Haughty": [],
         "Humble": []
-    },
-    "Race": {
-        "Human": [],
-        "Goblin": [],
-        "Kobold": []
     },
     "Occupation": {
         "Shopkeeper": [
@@ -55,12 +60,42 @@
         "Guard": [
             "Mercenary",
             "Public"
-        ]
+        ],
+        "Soldier": []
     },
     "Story Role": {
         "Give Item": [],
         "Give Quest": [],
         "Helper": [],
-        "Antagonist": []
+        "Antagonist": [
+            "Armed",
+            "Unarmed"
+        ]
+    },
+    "Weapon": {
+        "Unarmed": [],
+        "Sword": [
+            "Longsword",
+            "Shortsword",
+            "Broadsword",
+            "Scimitar"
+        ],
+        "Bow": [
+            "Longbow",
+            "Shortbow",
+            "Crossbow",
+            "Hand Crossbow"
+        ],
+        "Knife": [
+            "Dagger",
+            "Push Dagger",
+            "Dirk"
+        ],
+        "Mace": [],
+        "Staff": [],
+        "Throwing": [
+            "Throwing Star"
+        ],
+        "Magical Item": []
     }
 }
