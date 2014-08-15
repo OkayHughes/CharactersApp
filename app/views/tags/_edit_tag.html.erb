@@ -1,5 +1,5 @@
 <%= form_for(tag, remote: true) do |f| %>
-    <%= f.text_field(:key, value: tag.key) %>
-    <%= f.text_field(:value, value: tag.value) %>
-    <%= f.submit("Submit Changes") %>
+    <%= f.select(:value, tag_structure[tag_string].keys.select{ |x| not category_tags_values.include?(x) }.map{ |x| [x, x] }) %>
+    <%= f.hidden_field(:key, value: tag_string) %>
+    <%= f.submit %>
 <% end %>

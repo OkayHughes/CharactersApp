@@ -372,11 +372,11 @@ ul.tag-editors {
 .subtags {
     display: inline;
 }
-li.inline-subtag:before {
+li.inline-tag:before {
     content: "& ";
 }
-li.inline-subtag:first-child:before {
-    content: "";
+li.inline-tag:first-child:before {
+    content: none;
 }
 
 // Webkit hardware acceleration hack

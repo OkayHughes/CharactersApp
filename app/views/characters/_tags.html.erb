@@ -1,16 +1,5 @@
-<script>
-$(document).ready(function(){
-    if (<%= edit ? "true" : "false" %>){
-        $("#new-tag-location").replaceWith($("#new-tag-content").html());
-    } else {
-        $("#new-tag-location").html('');
-    }
-});
-</script>
-
 <% tag_structure = JSON.load(File.read(Rails.root.join("public", "tagdata.json"))) %>
-
-<div id="new-tag-location"> </div>
+<% tag_string = nil %>
 
 <ul class="tag-editors">
 <% tag_structure.keys.each do |tag_string| %>
@@ -26,9 +15,6 @@ $(document).ready(function(){
                     <%= this_tag.key + ": " + this_tag.value %>
                     <% subtags = character.tags.select{|k| k.key == this_tag.value and k.depth == 1} %>
                     <% if edit %>
-                        <%= link_to(edit_tag_path(this_tag), remote: true) do %>
-                            <span class="edit-link">Edit</span>
-                        <% end %>
                         <% if subtags.count == 0 %>
                             <%= link_to("×", tag_path(this_tag), remote: true, method: :delete, class: "delete-link")%>
                         <% end %>
@@ -80,15 +66,3 @@ $(document).ready(function(){
     </li>
 <% end %>
 </ul>
-
-<div id="new-tag-content">
-    <div class="new">
-    <%= form_for(tag, remote: true) do |t| %>
-        <%= t.text_field(:key, placeholder: "Category") %>
-        <%= t.text_field(:value, placeholder: "Value") %>
-        <%= t.number_field(:depth, step: 1, value: 0) %>
-        <%= t.hidden_field(:character_id, value: character.id) %>
-        <%= t.submit %>
-    <% end %>
-    </div>
-</div>
