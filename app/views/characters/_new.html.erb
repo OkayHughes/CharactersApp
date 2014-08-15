@@ -4,8 +4,9 @@
     <%= form_for(character, remote: true) do |f| %>
     	<%= f.text_field(:name, placeholder: "Name", id:"new_character_name") %><br>
     	<%= f.text_area(:bio, placeholder: "Bio", id:"new_character_bio") %><br>
-        <span id="shuffle-button" onclick="assignRandomByShuffle(true);"> Assign Shuffled Fixed Distribution </span> |
-        <span id="random-button" onclick="assignRandomByDice(true);"> Assign Random Distribution </span>
+        <span id="shuffle-button" onclick="assignRandomByShuffle(true);">Shuffled</span> |
+        <span id="random-button" onclick="assignRandomByDice(true);">Roll the Dice</span>
+        <hr>
         <div id="new_ability_labels_container">
         <%= f.label(:health) %> |
         <%= f.label(:strength) %> |
