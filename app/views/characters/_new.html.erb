@@ -4,6 +4,9 @@
     <%= form_for(character, remote: true) do |f| %>
     	<%= f.text_field(:name, placeholder: "Name", id:"new_character_name") %><br>
     	<%= f.text_area(:bio, placeholder: "Bio", id:"new_character_bio") %><br>
+        <span id="shuffle-button" onclick="assignRandomByShuffle(true);">Shuffled</span> |
+        <span id="random-button" onclick="assignRandomByDice(true);">Roll the Dice</span>
+        <hr>
         <div id="new_ability_labels_container">
         <%= f.label(:health) %> |
         <%= f.label(:strength) %> |
@@ -15,13 +18,13 @@
         </div>
         <div id="new_abilities_container">
         <div class="row_labels">Base:</div>
-        <%= f.number_field(:health, step: 1, value: 0, class:"new_abilities_field") %>
-        <%= f.number_field(:strength, step: 1, value: 0, class:"new_abilities_field") %>
-        <%= f.number_field(:dexterity, step: 1, value: 0, class:"new_abilities_field") %>
-        <%= f.number_field(:constitution, step: 1, value: 0, class:"new_abilities_field") %>
-        <%= f.number_field(:intelligence, step: 1, value: 0, class:"new_abilities_field") %>
-        <%= f.number_field(:wisdom, step: 1, value: 0, class:"new_abilities_field") %>
-        <%= f.number_field(:charisma, step: 1, value: 0, class:"new_abilities_field") %><br>
+        <%= f.number_field(:health, step: 1, value: 0, class:"new_abilities_field", id:"new_health")%>
+        <%= f.number_field(:strength, step: 1, value: 0, class:"new_abilities_field", id:"new_strength") %>
+        <%= f.number_field(:dexterity, step: 1, value: 0, class:"new_abilities_field", id:"new_dexterity") %>
+        <%= f.number_field(:constitution, step: 1, value: 0, class:"new_abilities_field", id:"new_constitution") %>
+        <%= f.number_field(:intelligence, step: 1, value: 0, class:"new_abilities_field", id:"new_intelligence") %>
+        <%= f.number_field(:wisdom, step: 1, value: 0, class:"new_abilities_field", id:"new_wisdom") %>
+        <%= f.number_field(:charisma, step: 1, value: 0, class:"new_abilities_field", id:"new_charisma") %><br>
         <span id="new_sigmas">
         <div class="row_labels">σ:</div> 
         <%= f.number_field(:health_sigma, step: 1, value: 0, class:"new_abilities_field") %>

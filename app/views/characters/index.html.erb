@@ -3,6 +3,7 @@
     <%= link_to(new_character_path, remote: true) do %>
     <div class="plus">+</div>
     <% end %>
+
     <div class="edit-topbar"><%= render partial: "layouts/edit_button", locals: {:character => @character} if @character%></div>
 </div>
 <div class="main">

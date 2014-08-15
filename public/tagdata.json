@@ -1,0 +1,107 @@
+{
+    "Location": {
+        "City": [
+            "Market",
+            "Square",
+            "Street",
+            "Shop",
+            "Wall"
+        ],
+        "Town": [
+            "Market",
+            "Square",
+            "Street",
+            "Shop"
+        ],
+        "Village": [
+            "Market",
+            "Square",
+            "Street",
+            "Shop"
+        ],
+        "Castle": [
+            "Keep",
+            "Throne Room"
+        ],
+        "Swamp": [],
+        "Dungeon": [],
+        "Farm": []
+    },
+    "Race": {
+        "Human": [],
+        "Goblin": [],
+        "Kobold": [],
+        "Undead": [
+            "Skeleton",
+            "Zombie"
+        ]
+    },
+    "Disposition": {
+        "Friendly": [],
+        "Hostile": [],
+        "Grumpy": [],
+        "Trusting": [],
+        "Suspiscious": [],
+        "Paranoid": [],
+        "Angry": [],
+        "Haughty": [],
+        "Humble": [],
+        "Enthusiastic": [],
+        "Apathetic": []
+    },
+    "Occupation": {
+        "Shopkeeper": [
+            "Food",
+            "Items",
+            "Weapons",
+            "Armor",
+            "Luxury"
+        ],
+        "Beggar": [
+            "Beggar's Guild",
+            "Homeless"
+        ],
+        "Guard": [
+            "Mercenary",
+            "Public"
+        ],
+        "Soldier": [],
+        "Noble": [],
+        "Farmer": []
+    },
+    "Story Role": {
+        "Give Item": [],
+        "Give Quest": [],
+        "Helper": [],
+        "Antagonist": [
+            "Armed",
+            "Unarmed"
+        ]
+    },
+    "Weapon": {
+        "Unarmed": [],
+        "Sword": [
+            "Longsword",
+            "Shortsword",
+            "Broadsword",
+            "Scimitar"
+        ],
+        "Bow": [
+            "Longbow",
+            "Shortbow",
+            "Crossbow",
+            "Hand Crossbow"
+        ],
+        "Knife": [
+            "Dagger",
+            "Push Dagger",
+            "Dirk"
+        ],
+        "Mace": [],
+        "Staff": [],
+        "Throwing": [
+            "Throwing Star"
+        ],
+        "Magical Item": []
+    }
+}

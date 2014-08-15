@@ -1,0 +1,52 @@
+<%= form_for(character, remote: true) do |f| %>
+    <%= f.text_field(:name, value: character.name) %><br>
+    <%= f.text_area(:bio, value: character.bio) %><br>
+    
+    <table>
+    <tr id="ability_labels_container">
+        <td></td>
+        <th><%= f.label(:health) %></th>
+        <th><%= f.label(:strength) %></th>
+        <th><%= f.label(:dexterity) %></th>
+        <th><%= f.label(:constitution) %></th>
+        <th><%= f.label(:intelligence) %></th>
+        <th><%= f.label(:wisdom) %></th>
+        <th><%= f.label(:charisma) %></th>
+        <td></td>
+    </tr>
+    <div id="abilities_container">
+        <tr>
+            <th class="row_labels">Base:</th>
+            <td><%= f.number_field(:health, step: 1, class:"abilities_field", id:'health') %></td>
+            <td><%= f.number_field(:strength, step: 1, class:"abilities_field", id:'strength') %></td>
+            <td><%= f.number_field(:dexterity, step: 1, class:"abilities_field", id:'dexterity') %></td>
+            <td><%= f.number_field(:constitution, step: 1, class:"abilities_field", id:'constitution') %></td>
+            <td><%= f.number_field(:intelligence, step: 1, class:"abilities_field", id:'intelligence') %></td>
+            <td><%= f.number_field(:wisdom, step: 1, class:"abilities_field", id:'wisdom') %></td>
+            <td>
+                <%= f.number_field(:charisma, step: 1, class:"abilities_field", id:'charisma') %><br>
+            </td>
+            <td>
+                <span id="shuffle-button" onclick="assignRandomByShuffle(false);">Shuffled</span> |
+                <span id="random-button" onclick="assignRandomByDice(false);">Roll the Dice</span>
+            </td>
+        </tr>
+        <span id="sigmas" style="<%= character.unique == true ? "display: none" : "" %>" >
+            <th class="row_labels">σ:</th> 
+            <td><%= f.number_field(:health_sigma, step: 1, class:"abilities_field") %></td>
+            <td><%= f.number_field(:strength_sigma, step: 1, class:"abilities_field") %></td>
+            <td><%= f.number_field(:dexterity_sigma, step: 1, class:"abilities_field") %></td>
+            <td><%= f.number_field(:constitution_sigma, step: 1, class:"abilities_field") %></td>
+            <td><%= f.number_field(:intelligence_sigma, step: 1, class:"abilities_field") %></td>
+            <td><%= f.number_field(:wisdom_sigma, step: 1, class:"abilities_field") %></td>
+            <td>
+                <%= f.number_field(:charisma_sigma, step: 1, class:"abilities_field") %><br>
+            </td>
+            <td></td>
+        </span>
+    </div>
+    </table>
+    <%= f.label "Unique?" %>
+    <%= f.check_box :unique, onclick:"toggleElements('#sigmas');" %> <br>
+    <%= f.submit("Submit Changes") %>
+<% end %>

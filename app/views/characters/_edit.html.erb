@@ -1,11 +1,14 @@
+<% if character %>
+    <div class="character_info">
+        <% if edit %>
+            <%= render partial: "characters/edit_character_info", locals: {character: character, edit: edit} %>
+        <% else %>
+            <%= render partial: "characters/character_info", locals: {character: character, edit: edit} %>
+        <% end %>
+    </div>
+    <div id="tags">
 
-    <% if character %>
-        <div class="character_info">
-        <%= render partial: "characters/character_info", locals: {:character => character, :edit => edit} %>
-        </div>
-        <div id="tags">
+    <%= render partial: "characters/tags", locals: {character: character, tag: tag, edit: edit} %>
 
-        <%= render partial: "characters/tags", locals: {:character => character, :tag => tag,:edit => edit} %>
-
-        </div>
-    <% end %>
+    </div>
+<% end %>

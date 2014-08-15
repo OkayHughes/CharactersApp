@@ -27,3 +27,16 @@ $('.abilities_field').on('input', function (event) {
 function toggleElements(path){
     $(path).toggle();
 }
+
+function toggleListElements(value){
+	if (value == "true"){
+		$("li[unique='false']").hide();
+		$("li[unique='true']").show();
+	} else if (value == "false") {
+		$("li[unique='false']").show();
+		$("li[unique='true']").hide();
+	} else {
+		$("li[unique='false']").show();
+		$("li[unique='true']").show();
+	}
+}

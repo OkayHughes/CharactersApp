@@ -1,43 +1,68 @@
+<% tag_structure = JSON.load(File.read(Rails.root.join("public", "tagdata.json"))) %>
+<% tag_string = nil %>
 
-<script>
-$(document).ready(function(){
-    if (<%= edit ? "true" : "false" %>){
-        $("#new-tag-location").replaceWith($("#new-tag-content").html());
-    } else {
-        $("#new-tag-location").html('');
-    }
-});
-</script>
-<ul class="tags">
-<% if character.tags.count != 0 %>
-
-    <% character.tags.each do |t| %>
-    <li name="tag_<%= t.id %>" class="inline-tags"><%= t.key << ": " << t.value %>
-    <% if edit %>
-    <div class="edit-button inline-tags">
-    <%= link_to(edit_tag_path(t), remote: true) do %>
-    <span class="edit-link inline-tags">Edit</span>
-    </div>
-    <% end %>
-    <% end %>
+<ul class="tag-editors">
+<% tag_structure.keys.each do |tag_string| %>
+    <li>
+        <h1><%= tag_string %></h1>
+        <% category_tags = character.tags.select{|k| k.key == tag_string and k.depth == 0} %>
+        <% category_tags_values = category_tags.map{ |x| x.value } %>
+        <ul>
+        <% if category_tags.size != 0 %>
+            <% category_tags.each do |this_tag| %>
+                <li name="tag_<%= this_tag.id %>" class="tag">
+                <span class="inline-tag">
+                    <%= this_tag.key + ": " + this_tag.value %>
+                    <% subtags = character.tags.select{|k| k.key == this_tag.value and k.depth == 1} %>
+                    <% if edit %>
+                        <% if subtags.count == 0 %>
+                            <%= link_to("×", tag_path(this_tag), remote: true, method: :delete, class: "delete-link")%>
+                        <% end %>
+                    <% end %>
+                </span>
+                <ul class="subtags">
+                <% if subtags.count > 0 %>
+                    &mdash; 
+                    <% subtags.each do |subtag| %>
+                        <li name="tag_<%= this_tag.id %>" class="inline-tag">
+                            <%= subtag.value %>
+                            <% if edit %>
+                                <%= link_to("×", tag_path(subtag), remote: true, method: :delete, class: "delete-link")%>
+                            <% end %>
+                        </li>
+                    <% end %>                  
+                <% end %>
+                <% if edit %>
+                    <% if tag_structure[tag_string][this_tag.value].size > 0 %>
+                        <div class="inline-tag">
+                        <% sub_values = subtags.map{ |y| y.value } %>
+                        <%= form_for(tag, remote: true) do |f| %>
+                            <%= f.select(:value, tag_structure[tag_string][this_tag.value].select{ |x| not sub_values.include?(x) }.map{ |x| [x, x] }) %>
+                            <%= f.hidden_field(:key, value: this_tag.value) %>
+                            <%= f.hidden_field(:character_id, value: character.id) %>
+                            <%= f.hidden_field(:depth, value: 1) %>
+                            <%= f.submit %>
+                        <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+                </ul>  
+                </li>
+            <% end %>
+        <% else %>
+            <div>This character has no <%= tag_string.pluralize(0).downcase %></div>
+        <% end %>
+        </ul>
+        
+        <% if edit %>
+            <%= form_for(tag, remote: true) do |f| %>
+                <%= f.select(:value, tag_structure[tag_string].keys.select{ |x| not category_tags_values.include?(x) }.map{ |x| [x, x] }) %>
+                <%= f.hidden_field(:key, value: tag_string) %>
+                <%= f.hidden_field(:character_id, value: character.id) %>
+                <%= f.hidden_field(:depth, value: 0) %>
+                <%= f.submit %>
+            <% end %>
+        <% end %>
     </li>
-    <% end %>
-<% else %>
-
-    <li>This character has no tags yet.</li>
-
 <% end %>
-    <div id="new-tag-location"> </div>
 </ul>
-
-<div id="new-tag-content">
-    <li class="new">
-    <%= form_for(tag, remote: true) do |t| %>
-        <%= t.text_field(:key, placeholder: "Category") %>
-        <%= t.text_field(:value, placeholder: "Value") %>
-        <%= t.number_field(:depth, step: 1, value: 0) %>
-        <%= t.hidden_field(:character_id, value: character.id) %>
-        <%= t.submit %>
-    <% end %>
-    </li>
-</div>
