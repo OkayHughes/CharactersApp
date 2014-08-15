@@ -1,1 +1,1 @@
-$("[name='tag_<%= @tag.id %>']").html("<%= escape_javascript(render partial: 'edit_tag', locals: {:character => current_character, :tag => @tag }) %>");
+$("[name='tag_<%= @tag.id %>']").html("<%= escape_javascript(render partial: 'edit_tag', locals: {:character => current_character, :tag => @tag, :tag_structure => tag_structure, :tag_string => tag_string, :this_tag => this_tag }) %>");
