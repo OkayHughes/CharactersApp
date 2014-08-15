@@ -106,6 +106,20 @@ a:hover {
     @include borderbox;
 }
 
+#specify-links {
+
+    font-size:15px;
+    color:white;
+    height:100%;
+    width:100%;
+    padding-bottom:3px;
+}
+
+.specify-link:hover{
+    color: #ddd;
+}
+
+
 .list {
     overflow-y:auto;
 	position:absolute;
@@ -133,6 +147,12 @@ a:hover {
     font-size: 20px;
     @include shadow(0 0 4px rgba(0, 0, 0, 0.2));
     @include borderbox;
+}
+
+.list li.list-header{
+
+    background-color:darken(#6D7587, 10%) !important;
+    
 }
 
 .list li:hover {

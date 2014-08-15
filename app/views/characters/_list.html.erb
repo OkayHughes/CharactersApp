@@ -1,9 +1,15 @@
 
     <ul>
-
-        <%characters.each do |c| %>
+    <li class="list-header">
+	 <span id="specify-links">
+    <span onclick="toggleListElements('true');" class="specify-link">Unique </span> |
+    <span onclick="toggleListElements('false');" class="specify-link">Non Unique </span> |
+    <span onclick="toggleListElements();" class="specify-link">All </span>
+    </span>
+    </li>
+    <%characters.each do |c| %>
         <%= link_to(character_path(c), remote: true) do %>
-            <li>
+            <li unique=<%=c.unique%>>
             <%= c.name %>
             </li>
             <% end %>
