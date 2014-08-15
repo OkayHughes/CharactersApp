@@ -1,6 +1,8 @@
 <%= form_for(character, remote: true) do |f| %>
     <%= f.text_field(:name, value: character.name) %><br>
     <%= f.text_area(:bio, value: character.bio) %><br>
+    <span id="shuffle-button" onclick="assignRandomByShuffle();"> Assign Shuffled Fixed Distribution </span> |
+    <span id="random-button" onclick="assignRandomByDice();"> Assign Random Distribution </span>
     <div id="ability_labels_container">
         <%= f.label(:health) %> |
         <%= f.label(:strength) %> |
@@ -12,13 +14,13 @@
     </div>
     <div id="abilities_container">
         <div class="row_labels">Base:</div>
-        <%= f.number_field(:health, step: 1, class:"abilities_field") %>
-        <%= f.number_field(:strength, step: 1, class:"abilities_field") %>
-        <%= f.number_field(:dexterity, step: 1, class:"abilities_field") %>
-        <%= f.number_field(:constitution, step: 1, class:"abilities_field") %>
-        <%= f.number_field(:intelligence, step: 1, class:"abilities_field") %>
-        <%= f.number_field(:wisdom, step: 1, class:"abilities_field") %>
-        <%= f.number_field(:charisma, step: 1, class:"abilities_field") %><br>
+        <%= f.number_field(:health, step: 1, class:"abilities_field", id:'health') %>
+        <%= f.number_field(:strength, step: 1, class:"abilities_field", id:'strength') %>
+        <%= f.number_field(:dexterity, step: 1, class:"abilities_field", id:'dexterity') %>
+        <%= f.number_field(:constitution, step: 1, class:"abilities_field", id:'constitution') %>
+        <%= f.number_field(:intelligence, step: 1, class:"abilities_field", id:'intelligence') %>
+        <%= f.number_field(:wisdom, step: 1, class:"abilities_field", id:'wisdom') %>
+        <%= f.number_field(:charisma, step: 1, class:"abilities_field", id:'charisma') %><br>
         <span id="sigmas" style="<%= character.unique == true ? "display: none" : "" %>" >
             <div class="row_labels">σ:</div> 
             <%= f.number_field(:health_sigma, step: 1, class:"abilities_field") %>
