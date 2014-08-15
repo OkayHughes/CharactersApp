@@ -244,7 +244,7 @@ div.row_labels {
 	z-index:1000000020;
     padding: 10px;
 	width:600px;
-	height:350px;
+	height:400px;
     background-color: #444;
     text-align:center;
     @include shadow(0 0 16px rgba(0, 0, 0, 0.4));
@@ -348,7 +348,7 @@ textarea#character_bio {
 #how-to-cancel {
     position:fixed;
     width:300px;
-    top:500px;
+    top:510px;
     left:50%;
     margin-left:-150px;
 
