@@ -1,1 +1,1 @@
-<%= link_to(set_view_path(character.id), remote: true) do %><div class="edit-value">View</div><% end %>
+<%= link_to(set_view_path(character.id), onclick: "$('#character-submit').click();", remote: true) do %><div class="edit-value">View</div><% end %>
