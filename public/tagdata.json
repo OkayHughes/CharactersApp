@@ -36,6 +36,13 @@
             "Zombie"
         ]
     },
+    "Alignment": {
+        "Neutral": [],
+        "Good": [],
+        "Evil": [],
+        "Lawful": [],
+        "Chaotic": []
+    },
     "Disposition": {
         "Friendly": [],
         "Hostile": [],
@@ -67,7 +74,8 @@
         ],
         "Soldier": [],
         "Noble": [],
-        "Farmer": []
+        "Farmer": [],
+        "Mage": []
     },
     "Story Role": {
         "Give Item": [],
@@ -102,6 +110,9 @@
         "Throwing": [
             "Throwing Star"
         ],
-        "Magical Item": []
+        "Magical Item": [
+            "Staff",
+            "Orb"
+        ]
     }
 }

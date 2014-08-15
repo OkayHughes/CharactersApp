@@ -37,7 +37,7 @@
                         <div class="inline-tag">
                         <% sub_values = subtags.map{ |y| y.value } %>
                         <%= form_for(tag, remote: true) do |f| %>
-                            <%= f.select(:value, tag_structure[tag_string][this_tag.value].select{ |x| not sub_values.include?(x) }.map{ |x| [x, x] }) %>
+                            <%= f.select(:value, tag_structure[tag_string][this_tag.value].select{ |x| not sub_values.include?(x) }.sort.map{ |x| [x, x] }) %>
                             <%= f.hidden_field(:key, value: this_tag.value) %>
                             <%= f.hidden_field(:character_id, value: character.id) %>
                             <%= f.hidden_field(:depth, value: 1) %>
@@ -56,7 +56,7 @@
         
         <% if edit %>
             <%= form_for(tag, remote: true) do |f| %>
-                <%= f.select(:value, tag_structure[tag_string].keys.select{ |x| not category_tags_values.include?(x) }.map{ |x| [x, x] }) %>
+                <%= f.select(:value, tag_structure[tag_string].keys.select{ |x| not category_tags_values.include?(x) }.sort.map{ |x| [x, x] }) %>
                 <%= f.hidden_field(:key, value: tag_string) %>
                 <%= f.hidden_field(:character_id, value: character.id) %>
                 <%= f.hidden_field(:depth, value: 0) %>
