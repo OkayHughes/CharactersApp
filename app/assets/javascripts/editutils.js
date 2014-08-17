@@ -29,7 +29,7 @@ function cancelNewCharacter(){
 }
 //random integer between [lo,high]
 function randInt(hi, lo){
-    return Math.floor((Math.random() * (hi-lo)) + 0.999) + lo;
+    return Math.floor((Math.random() * (hi-lo-1)) + 0.999) + lo;
 }
 
 function assignRandomByShuffle(new_fields){
